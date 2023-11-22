@@ -1,0 +1,22 @@
+http:
+  middlewares:
+    user-auth:
+      basicAuth:
+        users:
+          - "student:$$apr1$$yDcCXkVq$$cuvBMz3BZ/0dSWhNwsESW0"
+          - "student:$apr1$h1jlqtCV$KoEwVFUnvPv/md2xC6juc1"
+          - "myname:$apr1$oCcMiVM/$NadF3Ml1Rah71fGMsfpeH/"
+
+    test-ratelimit:
+      rateLimit:
+        average: 100
+        burst: 50
+
+    test-compress:
+      compress: {}
+
+    test-ipwhitelist:
+      ipWhiteList:
+        sourceRange:
+          - "127.0.0.1/32"
+          - "192.168.1.7"

@@ -1,0 +1,50 @@
+global:
+  checkNewVersion: true
+  sendAnonymousUsage: true
+
+api:
+  dashboard: true
+  insecure: true
+
+entryPoints:
+  http:
+    address: ":80"
+      
+log:
+
+  level: DEBUG
+
+  filePath: /dockerdata/logs/traefik.log
+
+
+accessLog:
+
+  filePath: /dockerdata/logs/traefik-access.log
+
+
+providers:
+  file:
+    filename: "/etc/traefik/config.yml"
+    watch: true
+  # Enable Docker configuration backend
+  docker:
+    # Docker server endpoint. Can be a tcp or a unix socket endpoint.
+    #
+    # Required
+    endpoint: "unix:///var/run/docker.sock"
+    #
+#    endpoint: tcp://10.10.10.10:2375
+
+    # Default host rule.
+    #
+    # Optional
+    # Default: "Host(`{{ normalize .Name }}`)"
+    #
+#    defaultRule: Host(`{{ normalize .Name }}.docker.localhost`)
+
+    # Expose containers by default in traefik
+    #
+    # Optional
+    #Default: true
+    #
+#    exposedByDefault: true

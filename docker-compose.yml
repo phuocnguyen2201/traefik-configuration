@@ -15,15 +15,15 @@ services:
     volumes:
       # So that Traefik can listen to the Docker events
       - /var/run/docker.sock:/var/run/docker.sock
-      - C:\docker\logs:/datadocker/logs
-      - C:\docker\traefik\traefik.yml:/etc/traefik/traefik.yml:ro
-      - C:\docker\traefik\config.yml:/etc/traefik/config.yml:ro
+      - /Users/phuocng/docker/mount:/datadocker/logs
+      - /Users/phuocng/traefik-configuration/traefik.yml:/etc/traefik/traefik.yml:ro
+      - /Users/phuocng/traefik-configuration/config.yml:/etc/traefik/config.yml:ro
 # We will need this on part 4.5
       #- C:\docker\mount:/mnt/basic-auth
 
 # 0 If you run this in Windows Computer you will need a environment variable
-    environment:
-     - COMPOSE_CONVERT_WINDOWS_PATHS=1
+    #environment:
+     #- COMPOSE_CONVERT_WINDOWS_PATHS=1
 ###########################################################################
   whoami:
 # A container that exposes an API to show its IP address

@@ -11,6 +11,8 @@ entryPoints:
     http:
       middlewares:
         - user-auth@file
+        - test-ratelimit@file
+        - test-ipwhitelist@file
          
 log:
 
